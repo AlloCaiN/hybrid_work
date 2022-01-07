@@ -1,0 +1,3 @@
+[submodule "learn_compose"]
+	path = learn_compose
+	url = https://github.com/AlloCaiN/LearnCompose.git
