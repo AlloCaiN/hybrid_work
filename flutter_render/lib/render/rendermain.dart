@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_render/render/homepage.dart';
-import 'package:flutter_render/render/rendermain.dart';
+import 'package:flutter_render/event/message_center.dart';
 
+import 'homepage.dart';
 
-void main() => runApp(const MyApp2());
-
-@pragma('vm:entry-point')
-void render() => runApp(MyApp());
-
-
-
-class MyApp2 extends StatelessWidget {
-  const MyApp2({Key? key}) : super(key: key);
-
+class MyApp extends StatelessWidget {
+  MyApp({Key? key}) : super(key: key);
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -29,7 +21,7 @@ class MyApp2 extends StatelessWidget {
         // counter didn't reset back to zero; the application is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter 2'),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
