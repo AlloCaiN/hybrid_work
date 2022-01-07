@@ -1,0 +1,3 @@
+[submodule "LearnCompose"]
+	path = LearnCompose
+	url = git@github.com:AlloCaiN/LearnCompose.git
