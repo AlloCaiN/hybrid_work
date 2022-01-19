@@ -6,6 +6,15 @@
       <excludeFolder url="file://$MODULE_DIR$/flutter_render/build" />
       <excludeFolder url="file://$MODULE_DIR$/flutter_render/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/flutter_render/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/flutterlib/package/flutterui/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/flutterlib/package/flutterui/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/flutterlib/package/flutterui/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/flutterlib/package/flutterui/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/flutterlib/package/flutterui/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/flutterlib/package/flutterui/build" />
+      <excludeFolder url="file://$MODULE_DIR$/flutterlib/build" />
+      <excludeFolder url="file://$MODULE_DIR$/flutterlib/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/flutterlib/.dart_tool" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
