@@ -1,9 +1,12 @@
 package com.allo.flutterui.util
 
 import android.content.Context
+import android.graphics.Rect
+import android.graphics.SurfaceTexture
 import android.util.Log
 import com.allo.flutterui.manager.AlloFlutterApplication
 import com.allo.flutterui.pigeon.RenderMessage
+import com.allo.openglmodular.env.gl.GLCustomSurfaceRender
 import io.flutter.FlutterInjector
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -11,7 +14,7 @@ import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.FlutterEngineGroup
 import io.flutter.embedding.engine.dart.DartExecutor
 
-object FlutterEngineManager : RenderMessage.ComposePluginApi {
+object FlutterEngineManager {
     var engineGroup : FlutterEngineGroup? = null
     const val ENGINE_ID = "render"
     const val RENDER_ENTRY = "render"
@@ -48,9 +51,31 @@ object FlutterEngineManager : RenderMessage.ComposePluginApi {
     fun destroyEngine() {
         FlutterEngineCache.getInstance().get(ENGINE_ID)?.destroy()
     }
+    var render :GLCustomSurfaceRender? = null
+    fun initGL() {
+        render = GLCustomSurfaceRender()
+        render?.queue {
+            render?.initProgram()
+            render?.onDrawFrame()
+        }
+   }
 
-    override fun acquireTexture(width: Long?, height: Long?): RenderMessage.FLTextureInfo {
-        Log.i("czf","acquireTexture size ${width} and ${height}")
-        return RenderMessage.FLTextureInfo()
+
+    fun bindGL(textureId : SurfaceTexture) {
+        render?.queue {
+            render?.onSurfaceChanged(300,300)
+            render?.bindSurface(textureId)
+        }
+    }
+
+
+    fun acquireTexture() : SurfaceTexture? {
+        return render?.acquireTexture()
+    }
+
+    fun requestRender() {
+        render?.queue {
+            render?.onDrawFrame()
+        }
     }
 }

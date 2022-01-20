@@ -25,6 +25,27 @@ class Flutterui {
     return reply;
   }
 
+  static Future<FLTextureInfo> generateTexture(int width,int height) async {
+    // 初始化请求参数
+    ComposePluginApi api = ComposePluginApi();
+    FLTextureInfo reply = await api.generateTexture(width,height);
+    return reply;
+  }
+  static Future<FLTextureInfo> acquireCanvasTexture(int width,int height) async {
+    // 初始化请求参数
+    ComposePluginApi api = ComposePluginApi();
+    FLTextureInfo reply = await api.testCanvasUseAcquireTexture(width,height);
+    return reply;
+  }
+
+  static Future<FLTextureInfo> generateCanvasTexture(int width,int height) async {
+    // 初始化请求参数
+    ComposePluginApi api = ComposePluginApi();
+    FLTextureInfo reply = await api.testCanvasUseGenerateTexture(width,height);
+    return reply;
+  }
+
+
 }
 
 

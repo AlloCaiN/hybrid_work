@@ -60,6 +60,21 @@ public class RenderMessage {
         case (byte)128:         
           return FLTextureInfo.fromMap((Map<String, Object>) readValue(buffer));
         
+        case (byte)129:         
+          return FLTextureInfo.fromMap((Map<String, Object>) readValue(buffer));
+        
+        case (byte)130:         
+          return FLTextureInfo.fromMap((Map<String, Object>) readValue(buffer));
+        
+        case (byte)131:         
+          return FLTextureInfo.fromMap((Map<String, Object>) readValue(buffer));
+        
+        case (byte)132:         
+          return FLTextureInfo.fromMap((Map<String, Object>) readValue(buffer));
+        
+        case (byte)133:         
+          return FLTextureInfo.fromMap((Map<String, Object>) readValue(buffer));
+        
         default:        
           return super.readValueOfType(type, buffer);
         
@@ -71,6 +86,26 @@ public class RenderMessage {
         stream.write(128);
         writeValue(stream, ((FLTextureInfo) value).toMap());
       } else 
+      if (value instanceof FLTextureInfo) {
+        stream.write(129);
+        writeValue(stream, ((FLTextureInfo) value).toMap());
+      } else 
+      if (value instanceof FLTextureInfo) {
+        stream.write(130);
+        writeValue(stream, ((FLTextureInfo) value).toMap());
+      } else 
+      if (value instanceof FLTextureInfo) {
+        stream.write(131);
+        writeValue(stream, ((FLTextureInfo) value).toMap());
+      } else 
+      if (value instanceof FLTextureInfo) {
+        stream.write(132);
+        writeValue(stream, ((FLTextureInfo) value).toMap());
+      } else 
+      if (value instanceof FLTextureInfo) {
+        stream.write(133);
+        writeValue(stream, ((FLTextureInfo) value).toMap());
+      } else 
 {
         super.writeValue(stream, value);
       }
@@ -80,6 +115,11 @@ public class RenderMessage {
   /** Generated interface from Pigeon that represents a handler of messages from Flutter.*/
   public interface ComposePluginApi {
     FLTextureInfo acquireTexture(Long width, Long height);
+    FLTextureInfo generateTexture(Long width, Long height);
+    FLTextureInfo testGLUseAcquireTexture(Long width, Long height);
+    FLTextureInfo testGLUseGenerateTexture(Long width, Long height);
+    FLTextureInfo testCanvasUseAcquireTexture(Long width, Long height);
+    FLTextureInfo testCanvasUseGenerateTexture(Long width, Long height);
 
     /** The codec used by ComposePluginApi. */
     static MessageCodec<Object> getCodec() {
@@ -105,6 +145,146 @@ public class RenderMessage {
                 throw new NullPointerException("heightArg unexpectedly null.");
               }
               FLTextureInfo output = api.acquireTexture(widthArg.longValue(), heightArg.longValue());
+              wrapped.put("result", output);
+            }
+            catch (Error | RuntimeException exception) {
+              wrapped.put("error", wrapError(exception));
+            }
+            reply.reply(wrapped);
+          });
+        } else {
+          channel.setMessageHandler(null);
+        }
+      }
+      {
+        BasicMessageChannel<Object> channel =
+            new BasicMessageChannel<>(binaryMessenger, "dev.flutter.pigeon.ComposePluginApi.generateTexture", getCodec());
+        if (api != null) {
+          channel.setMessageHandler((message, reply) -> {
+            Map<String, Object> wrapped = new HashMap<>();
+            try {
+              ArrayList<Object> args = (ArrayList<Object>)message;
+              Number widthArg = (Number)args.get(0);
+              if (widthArg == null) {
+                throw new NullPointerException("widthArg unexpectedly null.");
+              }
+              Number heightArg = (Number)args.get(1);
+              if (heightArg == null) {
+                throw new NullPointerException("heightArg unexpectedly null.");
+              }
+              FLTextureInfo output = api.generateTexture(widthArg.longValue(), heightArg.longValue());
+              wrapped.put("result", output);
+            }
+            catch (Error | RuntimeException exception) {
+              wrapped.put("error", wrapError(exception));
+            }
+            reply.reply(wrapped);
+          });
+        } else {
+          channel.setMessageHandler(null);
+        }
+      }
+      {
+        BasicMessageChannel<Object> channel =
+            new BasicMessageChannel<>(binaryMessenger, "dev.flutter.pigeon.ComposePluginApi.testGLUseAcquireTexture", getCodec());
+        if (api != null) {
+          channel.setMessageHandler((message, reply) -> {
+            Map<String, Object> wrapped = new HashMap<>();
+            try {
+              ArrayList<Object> args = (ArrayList<Object>)message;
+              Number widthArg = (Number)args.get(0);
+              if (widthArg == null) {
+                throw new NullPointerException("widthArg unexpectedly null.");
+              }
+              Number heightArg = (Number)args.get(1);
+              if (heightArg == null) {
+                throw new NullPointerException("heightArg unexpectedly null.");
+              }
+              FLTextureInfo output = api.testGLUseAcquireTexture(widthArg.longValue(), heightArg.longValue());
+              wrapped.put("result", output);
+            }
+            catch (Error | RuntimeException exception) {
+              wrapped.put("error", wrapError(exception));
+            }
+            reply.reply(wrapped);
+          });
+        } else {
+          channel.setMessageHandler(null);
+        }
+      }
+      {
+        BasicMessageChannel<Object> channel =
+            new BasicMessageChannel<>(binaryMessenger, "dev.flutter.pigeon.ComposePluginApi.testGLUseGenerateTexture", getCodec());
+        if (api != null) {
+          channel.setMessageHandler((message, reply) -> {
+            Map<String, Object> wrapped = new HashMap<>();
+            try {
+              ArrayList<Object> args = (ArrayList<Object>)message;
+              Number widthArg = (Number)args.get(0);
+              if (widthArg == null) {
+                throw new NullPointerException("widthArg unexpectedly null.");
+              }
+              Number heightArg = (Number)args.get(1);
+              if (heightArg == null) {
+                throw new NullPointerException("heightArg unexpectedly null.");
+              }
+              FLTextureInfo output = api.testGLUseGenerateTexture(widthArg.longValue(), heightArg.longValue());
+              wrapped.put("result", output);
+            }
+            catch (Error | RuntimeException exception) {
+              wrapped.put("error", wrapError(exception));
+            }
+            reply.reply(wrapped);
+          });
+        } else {
+          channel.setMessageHandler(null);
+        }
+      }
+      {
+        BasicMessageChannel<Object> channel =
+            new BasicMessageChannel<>(binaryMessenger, "dev.flutter.pigeon.ComposePluginApi.testCanvasUseAcquireTexture", getCodec());
+        if (api != null) {
+          channel.setMessageHandler((message, reply) -> {
+            Map<String, Object> wrapped = new HashMap<>();
+            try {
+              ArrayList<Object> args = (ArrayList<Object>)message;
+              Number widthArg = (Number)args.get(0);
+              if (widthArg == null) {
+                throw new NullPointerException("widthArg unexpectedly null.");
+              }
+              Number heightArg = (Number)args.get(1);
+              if (heightArg == null) {
+                throw new NullPointerException("heightArg unexpectedly null.");
+              }
+              FLTextureInfo output = api.testCanvasUseAcquireTexture(widthArg.longValue(), heightArg.longValue());
+              wrapped.put("result", output);
+            }
+            catch (Error | RuntimeException exception) {
+              wrapped.put("error", wrapError(exception));
+            }
+            reply.reply(wrapped);
+          });
+        } else {
+          channel.setMessageHandler(null);
+        }
+      }
+      {
+        BasicMessageChannel<Object> channel =
+            new BasicMessageChannel<>(binaryMessenger, "dev.flutter.pigeon.ComposePluginApi.testCanvasUseGenerateTexture", getCodec());
+        if (api != null) {
+          channel.setMessageHandler((message, reply) -> {
+            Map<String, Object> wrapped = new HashMap<>();
+            try {
+              ArrayList<Object> args = (ArrayList<Object>)message;
+              Number widthArg = (Number)args.get(0);
+              if (widthArg == null) {
+                throw new NullPointerException("widthArg unexpectedly null.");
+              }
+              Number heightArg = (Number)args.get(1);
+              if (heightArg == null) {
+                throw new NullPointerException("heightArg unexpectedly null.");
+              }
+              FLTextureInfo output = api.testCanvasUseGenerateTexture(widthArg.longValue(), heightArg.longValue());
               wrapped.put("result", output);
             }
             catch (Error | RuntimeException exception) {
